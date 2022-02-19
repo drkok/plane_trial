@@ -107,7 +107,7 @@ MIN_LOITER_RAD = 70
 
 # Define a safety distance - when the drones are at this spacing, altitudes can
 # be synced
-safety_spacing = 0.8*2*MAX_LOITER_RAD*abs(cos(0.5*np.pi - np.pi/np.size(agents)))
+safety_spacing = 0.8*2*MIN_LOITER_RAD*abs(cos(0.5*np.pi - np.pi/np.size(agents)))
 print("the Safety spacing is", safety_spacing)
 
 
@@ -516,6 +516,7 @@ vehicle3.parameters['WP_LOITER_RAD']=DEFAULT_LOITER_RAD
 while True:
     print("Vehicle ground speed is:", vehicle.groundspeed, vehicle2.groundspeed, vehicle3.groundspeed)
     print("Vehicle Altitude is:", vehicle.location.global_frame.alt, vehicle2.location.global_frame.alt, vehicle3.location.global_frame.alt)
+    print("vehicleID is", vehicle.parameters['SYSID_THISMAV'], vehicle2.parameters['SYSID_THISMAV'], vehicle3.parameters['SYSID_THISMAV'])
     
     if mode == 'CONVERGE':
         converge_true = True

@@ -58,9 +58,9 @@ def state_decode(state):
     state_body_tmp = state[4:]
     nAgents = state[0]
     for i in range(nAgents):
-        state_body.append(-(bytes_to_int(state_body_tmp[9*i:9*i+4])*1e-8+30)) 
-        state_body.append(bytes_to_int(state_body_tmp[9*i+4:9*i+8])*1e-8+136) 
-        state_body.append(state_body_tmp[9*i+8]) 
+        state_body.append(-(bytes_to_int(state_body_tmp[9*i:9*i+4])*1e-8+30)) #lat
+        state_body.append(bytes_to_int(state_body_tmp[9*i+4:9*i+8])*1e-8+136) #lon
+        state_body.append(state_body_tmp[9*i+8]) #alt
 
 #    print("Decode is")
 #    print(state_body)
